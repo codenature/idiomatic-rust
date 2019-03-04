@@ -18,6 +18,10 @@ fn main() {
 }
 ```
 
+## Function or method arguments
+### Prefer `&str` to `&String` as function or method  arguments
+
+
 ## `use`
 ### `use` Paths for functions
 Specify the parent module of the function with `use`. Then, call the function by prefixing with the parent module.
