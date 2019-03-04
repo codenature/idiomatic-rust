@@ -1,5 +1,23 @@
 # idiomatic-rust
 
+## Unused variables
+Prepend unused variables with underscore. This will also silence compiler warning.
+```rust
+    fn main() {
+        let _greeting = "Hello, World!";
+    }
+```
+
+```rust
+   fn greet(_name: &str) {
+       println!("Hello, World!");
+   }
+
+   fn main() {
+      greet("Good Afternoon");
+   }
+```
+
 ## `use`
 ### `use` Paths for functions
 Specify the parent module of the function with `use`. Then, call the function by prefixing with the parent module.
@@ -16,7 +34,7 @@ mod places {
 use crate::places::country;
 
 fn main() {
-    country::is_africa("Nigeria")
+    country::is_africa("Nigeria");
 }
 ```
 
@@ -35,7 +53,7 @@ mod places {
 use crate::places::country::Country;
 
 fn main() {
-    let country = Country {name: String::from("Nigeria")};
+    let _country = Country {name: String::from("Nigeria")};
 }
 ```
 
@@ -76,7 +94,7 @@ mod places {
 }
 
 mod people {
-    pub use self::places::country;
+    pub use crate::places::country;
 
     pub fn is_an_african(country_name: &str) -> bool {
         country::is_africa(country_name)
