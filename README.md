@@ -3,19 +3,19 @@
 ## Unused variables
 Prepend unused variables with underscore. This will also silence compiler warning.
 ```rust
-    fn main() {
-        let _greeting = "Hello, World!";
-    }
+fn main() {
+    let _greeting = "Hello, World!";
+}
 ```
 
 ```rust
-   fn greet(_name: &str) {
-       println!("Hello, World!");
-   }
+fn greet(_name: &str) {
+    println!("Hello, World!");
+}
 
-   fn main() {
-      greet("Good Afternoon");
-   }
+fn main() {
+    greet("Good Afternoon");
+}
 ```
 
 ## `use`
