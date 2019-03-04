@@ -65,3 +65,39 @@ fn fun2() -> IoResult {
 }
 ```
 
+### Re-export an item brought into scope with `use` by prefixing the `use` state with `pub`
+```rust
+mod places {
+    pub mod country {
+        pub fn is_africa(name: &str) -> bool {
+            true
+        }
+    }
+}
+
+mod people {
+    pub use self::places::country;
+
+    pub fn is_an_african(country_name: &str) -> bool {
+        country::is_africa(country_name)
+    }
+}
+
+fn main() {
+    let country = "Nigeria";
+    people::is_an_african(country);
+    people::country::is_africa(country);
+}
+```
+
+### Bring multiple items with shared path into scope nested `use`
+```rust
+use std::cmp::Ordering;
+use std::io;
+```
+
+could be re-written as
+
+```rust
+use std::{cmp::Ordering, io}
+```
