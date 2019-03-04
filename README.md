@@ -65,7 +65,7 @@ fn fun2() -> IoResult {
 }
 ```
 
-### Re-export an item brought into scope with `use` by prefixing the `use` state with `pub`
+### Re-export an item brought into scope with `use` by prefixing the `use` statement with `pub`
 ```rust
 mod places {
     pub mod country {
@@ -90,7 +90,7 @@ fn main() {
 }
 ```
 
-### Bring multiple items with shared path into scope nested `use`
+### Bring multiple items with shared path into scope with nested `use`
 ```rust
 use std::cmp::Ordering;
 use std::io;
