@@ -35,7 +35,7 @@ mod places {
 use crate::places::country::Country;
 
 fn main() {
-    let country = Country {name: String::from("Nigeria")}
+    let country = Country {name: String::from("Nigeria")};
 }
 ```
 
@@ -99,5 +99,5 @@ use std::io;
 could be re-written as
 
 ```rust
-use std::{cmp::Ordering, io}
+use std::{cmp::Ordering, io};
 ```
