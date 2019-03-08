@@ -123,3 +123,19 @@ could be re-written as
 ```rust
 use std::{cmp::Ordering, io};
 ```
+
+### Minimize the use of `use` with glob operator because it's harder to keep track of names that are brought into scope and where those names are defined. If you can, avoid them.
+```rust
+use std::io::*;
+```
+The statement above brings all public items defined in `std::io` into local scope.
+
+
+## Error handling
+### Minimize nested matching during error handling by taking advantage of the various `Result<T, E>` methods and closures
+Some of these methods are `map_err`, `unwrap_or_else`
+
+### Between `expect` and `unwrap` methods of `Result<T, E>`
+Both `expect` and `unwrap` return the value in the `Ok(T)` variant or call `panic!` for the `Err(E)`. However, choose `expect` over `unwrap` because it allows you to specify a panic error message which could potentially improve the documentation/usability of your code and make debugging easier. 
+
+### Propagate errors with `?` operator placed after a `Result` value. The `?` can only be used within functions that return `Result<T, E>`.
